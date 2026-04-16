@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Wish</title>
+
+    <style>
+        body {
+            margin: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-top: 80px;
+            color: #4a148c;
+        }
+
+        p {
+            font-size: 20px;
+            color: #333;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+        /* Floating hearts */
+        .heart {
+    position: fixed;
+    bottom: -20px;   /* start from bottom */
+    color: red;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+.gallery {
+    margin-top: 40px;
+}
+
+.gallery img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+    </style>
+
+</head>
+<body>
+
+    <h1>🎂 Birthday Wish 🎂</h1>
+    <p>Happy Birthday, to my cutie ❤️</p>
+    <p>Today is all about celebrating you &the joy you bring to my life 💕</p>
+
+    <button onclick="showMessage()">Start the Celebration 🎉</button>
+    <div class="gallery">
+        <img src="picc1.jpeg">
+        <img src="pic2.jpeg">
+        <img src="picc3.jpeg">  
+        <img src="picc4.jpeg"> 
+    </div>
+
+<video id="video1.mp4" width="300" style="display:none;" controls>
+    <source src="video.mp4" type="video/mp4">
+</video>
+
+    <script>
+       function showMessage() {
+    alert("I made something special for you ❤️ Click OK and watch this...");
+
+    window.location.href = "video.html";
+}
+
+        // Create floating hearts
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}, 600);
+    </script>
+
+</body>
+</html>

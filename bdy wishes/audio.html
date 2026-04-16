@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For You ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-top: 150px;
+            color: #4a148c;
+        }
+
+        /* 💖 Letter animation */
+        span {
+            display: inline-block;
+            animation: bounce 1s infinite;
+        }
+
+        span:nth-child(1) { animation-delay: 0s; }
+        span:nth-child(2) { animation-delay: 0.1s; }
+        span:nth-child(3) { animation-delay: 0.2s; }
+        span:nth-child(4) { animation-delay: 0.3s; }
+        span:nth-child(5) { animation-delay: 0.4s; }
+        span:nth-child(6) { animation-delay: 0.5s; }
+        span:nth-child(7) { animation-delay: 0.6s; }
+        span:nth-child(8) { animation-delay: 0.7s; }
+        span:nth-child(9) { animation-delay: 0.8s; }
+        span:nth-child(10){ animation-delay: 0.9s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ❤️ SAME hearts as index */
+        .heart {
+            position: absolute;
+            color: red;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 💖 I LOVE YOU -->
+    <h1>
+        <span>I</span>
+        <span> </span>
+        <span>L</span>
+        <span>O</span>
+        <span>V</span>
+        <span>E</span>
+        <span> </span>
+        <span>Y</span>
+        <span>O</span>
+        <span>U</span>
+    </h1>
+
+    <!-- 🎧 BUTTON -->
+    <button onclick="playAudio()">
+        💌 Listen to what I never said
+    </button>
+
+    <!-- AUDIO -->
+    <audio id="voiceAudio">
+        <source src="voice1.mpeg" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function playAudio() {
+            let audio = document.getElementById("voiceAudio");
+            audio.play();
+        }
+
+        // ❤️ SAME heart animation as index.html
+        setInterval(() => {
+            let heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.className = "heart";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (20 + Math.random() * 20) + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }, 300);
+    </script>
+
+</body>
+</html>

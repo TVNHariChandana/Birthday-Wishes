@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memories ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial;
+        }
+        video {
+
+        height: 90vh;
+        width: auto;
+        max-width: 100;
+        border-radius: 10px;
+  }
+       
+        button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            cursor: pointer;
+
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🎬 VIDEO -->
+    <div class="video-container">
+        <video id="myVideo" autoplay controls>
+            <source src="video1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- 🎁 BUTTON -->
+    <button id="nextPageBtn">🎁 A Surprise for You</button>
+
+    <script>
+        let video = document.getElementById("myVideo");
+        let btn = document.getElementById("nextPageBtn");
+
+        // Show button after video ends
+        video.onended = function() {
+            btn.style.display = "block";
+
+            // smooth fade-in
+            setTimeout(() => {
+                btn.style.opacity = "1";
+            }, 100);
+        };
+
+        // Go to audio page
+        btn.onclick = function() {
+            window.location.href = "audio.html";
+        };
+    </script>
+
+</body>
+</html>
